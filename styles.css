@@ -1,0 +1,317 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+/* Floating Home Icon */
+.home-icon {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    background: #6a11cb;
+    color: white;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+/* Hero Section */
+.hero {
+    display: none;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.8), /* 80% opacity for reduced visibility */
+        rgba(0, 0, 0, 0.8)
+    ), url('./background1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    transition: filter 0.5s ease; /* Smooth blur effect */
+    flex-direction: column;
+}
+
+.hero.blurred {
+    filter: blur(10px); /* Blur effect for the hero section */
+}
+
+/* Header (Name and Role moved to top center) */
+.header {
+    position: absolute;
+    top: 5%; /* Positioned near the top */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.header h2 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    font-weight: normal;
+}
+#floating-text {
+    position: absolute;
+    bottom: 8%; /* Position above the arrow */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    animation: fadeIn 2s infinite;
+}
+
+/* Optional fade-in animation */
+@keyframes fadeIn {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* Arrow */
+.arrow {
+    position: absolute;
+    bottom: 5%; /* Positioned near the bottom center */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+}
+
+/* Arrow Bounce Animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
+}
+
+/* Transparent Widgets Container */
+.widgets-container {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the grid */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+    gap: 40px; /* Adjust spacing between items */
+    width: 80%;
+    max-width: 900px; /* Adjusted maximum width */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Individual Widget Styles */
+.widget {
+    background: rgba(255, 255, 255, 0.2); /* Transparent background */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.widget:hover {
+    background: rgba(255, 255, 255, 0.7); /* Brighter on hover */
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+
+/* Contact Section */
+.contact-section {
+    display: none;
+   /* background-image: url('./background.jpg'); /* Merged background image */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 70px;
+    position: absolute;
+    bottom: 0; /* Sticks to the bottom */
+    left: 0; /* Aligns to the left */
+    width: 100%; /* Stretches to the right corner */
+    height: 30%; /* Covers 30% of the viewport height */
+    box-sizing: border-box;
+    backdrop-filter: blur(5px); /* Add blur effect for better text visibility */
+}
+
+.contact-section.hidden {
+    display: none;
+}
+
+.contact-section:not(.hidden) {
+    display: block;
+}
+.contact-content {
+    display: flex;
+    flex-direction: row; /* Display items in a row */
+    justify-content: center; /* Center align items horizontally */
+    align-items: center; /* Align items vertically */
+    gap: 40px; /* Space between items */
+    height: 100%; /* Full height of the section */
+}
+
+.contact-item {
+    display: flex;
+    align-items: center; /* Align icons and text */
+    gap: 10px; /* Space between icon and text */
+    font-size: 1.2rem;
+    color: white;
+}
+
+.contact-item i {
+    font-size: 2rem; /* Larger icons */
+    color: #6a11cb;
+    cursor: pointer;
+}
+
+/* Styling for clickable icons */
+.icon-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.icon-link:hover {
+    color: #4d0d99; /* Darker purple on hover */
+}
+
+/* About Me Modal */
+/* Modal Styles */
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden; /* Hidden by default */
+    opacity: 0; /* Hidden by default */
+    backdrop-filter: blur(15px); /* Blurred background */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background: rgba(32, 32, 32, 0.5); /* Semi-transparent black for content */
+    color: white;
+    padding: 20px;
+    text-align: left; /* Align content for readability */
+    font-style: italic;
+    max-width: 80%; /* Limit width to 80% of the viewport */
+    max-height: 80%; /* Limit height to 80% of the viewport */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* Ensure the modal container itself can support scrolling */
+.modal-content {
+    background: rgba(32, 32, 32, 0.8); /* Semi-transparent background */
+    color: white;
+    padding: 20px;
+    text-align: left; /* Align content to the left */
+    font-style: italic;
+    max-width: 80%; /* Limit width to 80% of the viewport */
+    max-height: 80%; /* Limit height to 80% of the viewport */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* Ensure the modal itself does not overflow */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    visibility: hidden; /* Hidden by default */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Make the modal visible when active */
+.modal.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Scrollbar styles for modal content */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #6a11cb; /* Purple scrollbar */
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #4d0d99; /* Darker purple on hover */
+}
+
+/* Close button styling */
+.close-modal {
+    background: #6a11cb;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.close-modal:hover {
+    background: #4d0d99;
+}
+
+
+
+
+ 

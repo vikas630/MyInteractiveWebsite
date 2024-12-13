@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vikas Manchala's Interactive Website">
+    <title>Vikas Manchala</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Floating Home Icon -->
+    <div class="home-icon" onclick="scrollToHome()">
+        <i class="fas fa-home"></i>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero" id="hero">
+        <div class="header">
+            <h1>Vikas Manchala</h1>
+            <h2>Software Engineer | Analyst</h2>
+        </div>
+        <p id="floating-text">Contact Me</p>
+        <i id="arrow-icon" class="fas fa-chevron-down arrow" onclick="toggleContactSection()"></i>
+    </div>
+<!-- Modal Structure -->
+<div id="dynamicModal" class="modal">
+    <div class="modal-content">
+        <h2 id="modalTitle"></h2>
+        <p id="modalBody"></p>
+        <button class="close-modal" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+
+<!-- Widgets Container -->
+<div class="widgets-container">
+    <div class="widget" onclick="showModal('About Me', aboutMeContent)">About Me</div>
+    <div class="widget" onclick="showModal('My Experience', myExperienceContent)">My Experience</div>
+    <div class="widget" onclick="showModal('Tools and Technologies', toolsContent)">Tools and Technologies</div>
+    <div class="widget" onclick="showModal('Certifications', certificationsContent)">Certifications</div>
+    <div class="widget" onclick="showModal('Talk to Me', talkToMeContent)">Talk to Me</div>
+    <div class="widget" onclick="showModal('Hobbies', hobbiesContent)">Hobbies</div>
+</div>
+
+<!-- Modal for About Me -->
+<!-- About Me Modal -->
+<!-- Modal for About Me -->
+<div id="aboutMeModal" class="modal hidden">
+    <button class="close-modal" onclick="closeModal()">Close</button>
+    <div class="modal-content">
+        <h2>About Me</h2>
+        <p>
+            <em>
+                Software Engineering Analyst with 2 years’ experience at Accenture, specializing in ASP .NET Core, 
+                Microsoft SQL Server, Azure services, and having good knowledge in Power BI. Demonstrated expertise 
+                in creating data-driven reports, automating manual tasks, and ensuring application availability. Proven 
+                ability to analyze data for informed decision-making and improve team efficiency through active participation 
+                in scrum meetings. Adept at handling major issues promptly and delivering high-quality solutions on time. 
+                Career goal: to leverage technical skills and analytical abilities to drive innovation in software development.
+            </em>
+        </p>
+    </div>
+</div>
+
+
+<!-- My Experience Modal -->
+<div id="experienceModal" class="modal hidden">
+    <div class="modal-content">
+        <h2>My Experience</h2>
+        <p>
+            <strong>Accenture</strong><br>
+            Software Engineering Analyst<br>
+            January 2023 – November 2024<br>
+            Bangalore, Karnataka<br>
+            <strong>Technologies/tools:</strong> ASP.NET Core API, Microsoft SQL Server, Azure Data Factory, Azure Services, Jira, ServiceNow<br><br>
+            <strong>Roles and responsibilities:</strong>
+            <ul>
+                <li>Monitored application availability to quickly spot and fix issues, reducing downtime. Worked with different teams to schedule tasks efficiently within available time slots.</li>
+                <li>Responded quickly to application issues, ensuring smooth operations and improving team efficiency through regular monitoring.</li>
+                <li>Created scripts and stored procedures for repetitive tasks from users and created email alerts to trigger when search indexers failed, removing the need for manual monitoring.</li>
+                <li>Actively participated in scrum meetings, helping with sprint planning, estimating tasks, and giving demos at the end of each sprint. Engaged fully in retrospectives to improve future work.</li>
+                <li>Took on tasks from business stakeholders, delivering work on time and maintaining high quality.</li>
+                <li>Handled major issues promptly, providing workarounds or fixing problems at the root to keep users satisfied.</li>
+                <li>Automated manual tasks to save time and improve efficiency. Worked closely with users to understand their needs and delivered solutions on time while resolving bugs.</li>
+            </ul>
+            <strong>Accenture</strong><br>
+            Software Engineering Associate<br>
+            October 2022 – December 2022<br>
+            Bangalore, Karnataka<br>
+            <strong>Technologies/tools:</strong> Power BI Desktop, Microsoft SQL Server, Excel<br><br>
+            <strong>Roles and responsibilities:</strong>
+            <ul>
+                <li>Created reports based on stakeholders' requirements.</li>
+                <li>Used Microsoft SQL Server and Excel for data processing and converted raw data into reports.</li>
+                <li>Analyzed previous and present data for better decision-making.</li>
+                <li>Actively participated in scrum meetings and retrospectives for better understanding and improving future work.</li>
+            </ul>
+        </p>
+        <button class="close-modal" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<!-- Tools and Technologies Modal -->
+<div id="toolsModal" class="modal hidden">
+    <div class="modal-content">
+        <h2>Tools and Technologies</h2>
+        <ul>
+            <li><strong>Programming Languages:</strong> ASP.NET Web API, ASP.NET Core, Java, SQL</li>
+            <li><strong>Data & Analytics:</strong> Power BI, Azure Services, Entity Framework</li>
+            <li><strong>Developer Tools:</strong> Visual Studio, Eclipse, Microsoft SQL Server</li>
+            <li><strong>Other Tools:</strong> Jira, ServiceNow, Power BI Desktop</li>
+            <li><strong>Workflow Models:</strong> Agile, Waterfall, V-Model</li>
+        </ul>
+        <button class="close-modal" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<!-- Certifications Modal -->
+<div id="certificationsModal" class="modal hidden">
+    <div class="modal-content">
+        <h2>Certifications</h2>
+        <ul>
+            <li>Microsoft Azure Fundamentals - AZ-900</li>
+            <li>Designing and Implementing a Microsoft Azure AI Solution - AI-102</li>
+            <li>Microsoft Certified: Power BI Data Analyst Associate - PL-300</li>
+            <li>SQL Advanced Certification from HackerRank</li>
+            <li>REST API (Intermediate)</li>
+        </ul>
+        <button class="close-modal" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<!-- Hobbies Modal -->
+<div id="hobbiesModal" class="modal hidden">
+    <div class="modal-content">
+        <h2>Hobbies</h2>
+        <ul>
+            <li>Badminton</li>
+            <li>Swimming</li>
+        </ul>
+        <button class="close-modal" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<!-- Talk to Me Modal -->
+<div id="talkModal" class="modal hidden">
+    <div class="modal-content">
+        <h2>Talk to Me</h2>
+        <ul>
+            <li><strong>Email:</strong> <a href="mailto:vikasvickky2305@gmail.com">vikasvickky2305@gmail.com</a></li>
+            <li><strong>Phone:</strong> 6301510040</li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/manchalavikas" target="_blank">linkedin.com/in/manchalavikas</a></li>
+            <li><strong>Instagram:</strong> <a href="https://www.instagram.com/vikas_manchala?igsh=MW1tMzV2MWR5OHdh" target="_blank">instagram.com/vikas_manchala</a></li>
+        </ul>
+        <button class="close-modal" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section hidden">
+        <div class="contact-content">
+            <div class="contact-item">
+                <a href="mailto:vikasvickky2305@gmail.com" class="icon-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <span>Email</span>
+            </div>
+            <div class="contact-item">
+                <a href="tel:6301510040" class="icon-link">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <span>Phone</span>
+            </div>
+            <div class="contact-item">
+                <a href="https://www.linkedin.com/in/manchalavikas" class="icon-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <span>LinkedIn</span>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
